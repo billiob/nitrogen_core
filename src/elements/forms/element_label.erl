@@ -4,16 +4,23 @@
 
 -module (element_label).
 -include_lib ("wf.hrl").
--compile(export_all).
+-export ([reflect/0, render_element/1]).
 
 reflect() -> record_info(fields, label).
 
-render_element(Record) -> 
+get_for_value(Element) when is_tuple(Element) ->
+    Base = wf_utils:get_elementbase(Element),
+    Base#elementbase.id;
+get_for_value(Id) ->
+    Id.
+
+render_element(Record) ->
     Body = [
         wf:html_encode(Record#label.text, Record#label.html_encode),
         Record#label.body
     ],
     wf_tags:emit_tag(label, Body, [
         {class, [label, Record#label.class]},
-        {style, Record#label.style}
+        {style, Record#label.style},
+        {for, get_for_value(Record#label.for)}
     ]).
