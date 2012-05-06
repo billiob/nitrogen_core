@@ -11,7 +11,7 @@ reflect() -> record_info(fields, textarea).
 render_element(Record) -> 
     Text = html_encode(Record#textarea.text, Record#textarea.html_encode),
     wf_tags:emit_tag(textarea, Text, [
-	{class, [textarea, Record#textarea.class]},
+	{class, Record#textarea.class},
 	{style, Record#textarea.style}
     ]).
 

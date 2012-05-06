@@ -23,7 +23,7 @@ render_element(Record) ->
     Value = wf:html_encode(Record#password.text, Record#password.html_encode),
     wf_tags:emit_tag(input, [
         {type, password},
-        {class, [password, Record#password.class]},
+        {class, Record#password.class},
         {style, Record#password.style},
         {value, Value}
     ]).

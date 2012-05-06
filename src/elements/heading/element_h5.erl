@@ -10,6 +10,6 @@ reflect() -> record_info(fields, h5).
 render_element(Record) ->
     Text = wf:html_encode(Record#h5.text, Record#h5.html_encode),
     wf_tags:emit_tag(h5, Text, [
-        {class, [h5, Record#h5.class]},
+        {class, Record#h5.class},
         {style, Record#h5.style}
     ]).

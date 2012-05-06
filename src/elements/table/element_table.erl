@@ -27,6 +27,6 @@ render_element(Record) ->
         {border, 0},
         {cellpadding, 0},
         {cellspacing, 0},
-        {class, [table, Record#table.class]},
+        {class, Record#table.class},
         {style, Record#table.style}
     ]).

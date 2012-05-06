@@ -10,7 +10,7 @@ reflect() -> record_info(fields, image).
 
 render_element(Record) ->
     Attributes = [
-        {class, [image, Record#image.class]},
+        {class, Record#image.class},
         {style, Record#image.style},
         {src, Record#image.image}
     ],

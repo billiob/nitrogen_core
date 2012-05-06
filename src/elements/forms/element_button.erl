@@ -19,7 +19,7 @@ render_element(Record) ->
     Value = ["  ", wf:html_encode(Record#button.text, Record#button.html_encode), "  "], 
     wf_tags:emit_tag(input, [
         {type, button},
-        {class, [button, Record#button.class]},
+        {class, Record#button.class},
         {style, Record#button.style},
         {value, Value}
     ]).

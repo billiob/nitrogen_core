@@ -30,7 +30,7 @@ render_element(Record) ->
             {id, Anchor},
             {value, Record#radio.value},
             {type, radio},
-            {class, [radio, Record#radio.class]},
+            {class, Record#radio.class},
             {style, Record#radio.style},
             {CheckedOrNot, true}
         ]),
